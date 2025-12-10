@@ -26,5 +26,56 @@ import java.util.Arrays;
  *
  */
 public class Deck {
+    private Card[] cards;
+
+    public Deck(Card[] cards) {
+        this.cards = Arrays.copyOf(cards, cards.length);
+    }
+
+    public Deck() {
+        this.cards = new Card[0];
+        for (Suit suit : Suit.values()) {
+            for (Rank rank : Rank.values()) {
+                this.addCard(new Card(suit, rank));
+            }
+        }
+    }
+
+    public Card[] getCards() {
+        return Arrays.copyOf(cards, cards.length);
+    }
+
+    public void addCard(Card card) {
+        for (Card c : cards) {
+            if (c.equals(card)) {
+                System.out.println("Warnung: Karte" + card + "bereits im Deck vorhanden!");
+                return;
+            }
+        }
+        cards = Arrays.copyOf(cards, cards.length + 1);
+        cards[cards.length - 1] = card;
+    }
+
+    public Card pop() {
+        if (cards.length == 0) {
+            return null;
+        }
+        Card lastCard = cards[cards.length - 1];
+        cards = Arrays.copyOf(cards, cards.length - 1);
+        return lastCard;
+    }
+
+    public void shuffle() {
+       
+    }
+
+
+
     
+
+
+
+
+
+
 }
