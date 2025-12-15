@@ -66,6 +66,13 @@ public class Deck {
     }
 
     public void shuffle() {
+        Random rnd = new Random();
+        for (int i = cards.length - 1; i > 0; i--) {
+            int j = rnd.nextInt(i + 1);
+            Card temp = cards[i];
+            cards[i] = cards[j];
+            cards[j] = temp;
+        }
        
     }
 
