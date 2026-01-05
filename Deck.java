@@ -26,6 +26,8 @@ import java.util.Arrays;
  *
  */
 public class Deck {
+    public Suit trumpf;
+
     private Card[] cards;
 
     public Deck(Card[] cards) {
@@ -72,17 +74,32 @@ public class Deck {
             Card temp = cards[i];
             cards[i] = cards[j];
             cards[j] = temp;
-        }
-       
+        }   
     }
 
+    public Card[] validCards(Deck played) {
+        if (played.getCards().length == 0) {
+            return getCards();
+        }
 
+        Suit startSuit = played.getCards()[0].getSuit();
 
+        boolean hasSuit = false;
+        for (Card c : getCards()) {
+            if (c.getSuit() == startSuit) {
+                hasSuit = true;
+                break;
+            }
+        }
+
+        if (!hasSuit) {
+            return getCards();
+        }
+        
     
 
 
 
+    }
 
-
-
-}
+    }
