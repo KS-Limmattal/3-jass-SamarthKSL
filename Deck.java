@@ -95,11 +95,19 @@ public class Deck {
         if (!hasSuit) {
             return getCards();
         }
-        
+
+        Card[] valid = new Card[0];
+        for (Card c : cards) {
+            if (c.getSuit() == startSuit) {
+                valid = Arrays.copyOf(valid, valid.length + 1);
+                valid[valid.length - 1] = c;
+            }
+        }
+
+        return valid;
+    }
     
 
-
-
     }
 
-    }
+    

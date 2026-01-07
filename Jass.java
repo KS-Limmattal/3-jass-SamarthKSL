@@ -27,8 +27,11 @@ public class Jass {
         for (Card c : deck.getCards()) {
         System.out.println(c);
         }
-     }
- }
+        
+
+}
+}
+
 
 
 
